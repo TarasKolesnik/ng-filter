@@ -1,0 +1,69 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.close-button {
+    float: right;
+    top: -5px;
+    right: -5px;
+}
+
+.mat-datepicker-content .mat-calendar {
+    height: auto !important;
+}
+
+.datepicker-footer {
+    max-width: 280px;
+    padding: 15px;
+    padding-top: 0px;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.long-filter {
+    height: 0px;
+    overflow: hidden;
+}
+
+.show {
+    overflow: visible;
+    height: auto;
+}
+
+.p-1 {
+    padding: 10px;
+}
+
+.inline {
+    display: inline;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.modal-loading {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}

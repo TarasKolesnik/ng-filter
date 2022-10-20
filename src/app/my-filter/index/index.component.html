@@ -1,0 +1,73 @@
+<div class="p-3 mt-2 border rounded">
+    <h3>My filters</h3>
+    <div>
+        <div *ngIf="isSaveFilter" class="p-1" style="position:relative;border:1px solid #ccc;border-radius: 10px;margin-bottom: 10px;">
+            <h3>New filter</h3>
+            <button mat-icon-button style="position: absolute;top:10px;right:10px;" (click)="createFilter()">
+                <mat-icon>cancel</mat-icon>
+            </button>
+            <div class="p-1">
+                <mat-form-field class="w-full">
+                    <mat-label>Filter name</mat-label>
+                    <input #filterName matInput placeholder="Enter filter name">
+                </mat-form-field>
+            </div>
+            <ng-container *ngIf="input.filterData">
+                <div *ngFor="let item of input.filterData | keyvalue">
+                    <div class="p-1" *ngIf="item.value.length > 0">
+                    <mat-chip-list>
+                        <mat-chip selected>{{item.key}}:</mat-chip>
+                        <mat-chip *ngFor="let val of item.value" (removed)="removeItemNewFilter(val, item.key)">
+                            {{val.name || val}}
+                            <button matChipRemove>
+                                <mat-icon>cancel</mat-icon>
+                            </button>
+                        </mat-chip>
+                    </mat-chip-list>
+                    </div>
+                </div>
+            </ng-container>
+            <div class="p-1">
+                <button mat-raised-button color="accent" (click)="saveFilter(filterName.value)">Save</button>
+            </div>
+        </div>
+        <div style="border:1px solid #ccc;border-radius:10px;">
+            <div class="flex flex-row space-between p-1">
+                <div>
+                    <h3>Saved filters</h3>
+                </div>
+                <div *ngIf="!isSaveFilter">
+                    <button mat-raised-button (click)="createFilter()">
+                        <mat-icon color="primary">add</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="p-1">
+                <mat-chip-list>
+                    <mat-chip *ngFor="let item of savedFiltersS | async" (click)="openSaveFilter(item)" (removed)="removeSavedFilter(item)">
+                        {{item.name}}
+                        <button matChipRemove>
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </mat-chip>
+                </mat-chip-list>
+            </div>
+            <div class="mt-2 pt-3" *ngIf="isFilterDetail">
+                <div class="p-3 border rounded relative">
+                    <div class="py-3 pt-0 text-xl">Detail: {{filterDetail.name}}</div>
+                    <div *ngFor="let item of filterDetail.filter | keyvalue">
+                        <div *ngIf="item.value" class="p-1">
+                            <mat-chip-list>
+                                <mat-chip selected>{{item.key}}:</mat-chip>
+                                <mat-chip *ngFor="let val of item.value">{{val.name || val}}</mat-chip>
+                            </mat-chip-list>
+                        </div>
+                    </div>
+                    <button style="position: absolute;top:10px;right:10px;" (click)="isFilterDetail = false">
+                        <mat-icon>cancel</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

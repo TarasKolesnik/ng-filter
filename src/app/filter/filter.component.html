@@ -1,0 +1,35 @@
+<button mat-icon-button class="close-button" [mat-dialog-close]>
+    <mat-icon>close</mat-icon>
+</button>
+<div class="modal-loading">
+    <mat-spinner diameter="38" *ngIf="isLoading"></mat-spinner>
+</div>
+<div mat-dialog-title>Filter</div>
+<mat-dialog-content>
+    <ng-container *ngIf="!isLoading">
+        <form [formGroup]="filterForm">
+        <div> 
+            <div>
+                <app-date [data]="{ start: date.value.start, end: date.value.end }" (returnSavedFilters)="returnDate($event)"></app-date>
+            </div>
+            <div>
+                <app-select [data]="inputStatusSelect | async" (returnSavedFilters)="returnSelect($event)"></app-select>
+            </div>
+            <div>
+                <app-select [data]="inputCountrySelect | async" (returnSavedFilters)="returnSelect($event)"></app-select>
+            </div>
+        </div>
+        </form>
+    </ng-container>
+    <div class="p-3 px-2">
+        <my-filter [input]="filter | async" (returnSavedFilters)="returnCurrentFilter($event)"></my-filter>
+    </div>
+</mat-dialog-content>
+<div mat-dialog-actions style="display: flex;justify-content: space-between;">
+    <div>
+        <button mat-button class="w-full" [mat-dialog-close]>Cancel</button>
+    </div>
+    <div>
+        <button mat-raised-button color="primary" class="w-full" [mat-dialog-close] (click)="accept()">Accept</button>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="p-1">
+
+  <!-- filter start -->
+  <div class="flex flex-col flex-auto">
+    <div class="flex flex-row flex-wrap">
+
+        <div class="p-1">
+          <button mat-raised-button color="primary" (click)="filter()">Filter</button>
+        </div>
+
+        <!-- Current filter start -->
+        <div *ngFor="let item of savedFilters" class="p-1">
+          <button mat-raised-button class="w-full" (click)="engageFastFilter(item.filter)">{{item.name}}</button>
+        </div>
+        <!-- Current filter end -->
+
+        <div class="p-1" *ngIf="currentFilter.length">
+          <button mat-raised-button color="warn" (click)="clearFilter()">Clear filter</button>
+        </div>
+    </div>
+  
+    <!-- Current filter start -->
+    <div>
+      <div *ngFor="let item of currentFilter" class="inline">
+        <div *ngIf="item.filter.length" class="p-1">
+            <mat-chip-list>
+                <mat-chip selected>{{item.name}}:</mat-chip>
+                <mat-chip *ngFor="let val of item.filter" (removed)="removeItemNewFilter(val, item.name)">
+                  {{val.name || val}}
+                  <button matChipRemove>
+                    <mat-icon>cancel</mat-icon>
+                  </button>
+                </mat-chip>
+            </mat-chip-list>
+        </div>
+      </div>
+    </div>
+    <!-- Current filter end -->
+  
+  </div>
+    
+  <!-- filter end -->
+
+  <div class="p-1">
+    <h3>Current filter:</h3>
+    <div>{{ currentFilter | json }}</div>
+    <br>
+    <h3>Saved filters:</h3>
+    <div>{{ savedFilters | json }}</div>
+  </div>
+</div>

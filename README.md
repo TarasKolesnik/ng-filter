@@ -1,5 +1,7 @@
 # ng-filter
 
+varsion: 1
+
 - leads.component.ts (index)
     - ngOnInit()
     - filter()
@@ -20,7 +22,7 @@
     - getFilterList()
     - getCurrentFilter()
 
-date.component.ts
+- date.component.ts
     - ngOnInit()
     - onOpen()
     - today()
@@ -32,7 +34,7 @@ date.component.ts
     - endChange()
     - out()
 
-select.component.ts:
+- select.component.ts:
     - ngOnChanges()
     - out()
     - selectList()
@@ -40,7 +42,7 @@ select.component.ts:
     - select()
     - filterLists()
 
-my-filter/index.components.ts
+- my-filter/index.components.ts
     - ngOnChanges()
     - createFilter()
     - saveFilter()
@@ -48,11 +50,18 @@ my-filter/index.components.ts
     - removeSavedFilter()
     - openSaveFilter()
     - removeItemNewFilter()
-    - 
+
+- _service/filter.service.ts
+    - check()
+    - getListItemsById()
+    - checkCollectFilter()
+    - getCurrentFilter()
+    - updateDate()
+    - collect()
+    - getSavedFilters()
 
 - Use dependency: 
     - https://material.angular.io/
     - https://themeforest.net/item/fuse-angularjs-material-design-admin-template/12931855
     - https://www.npmjs.com/package/ngx-mat-select-search
-    - (Optional) https://www.npmjs.com/package/@ngneat/transloco
     - (Optional) https://tailwindcss.com/

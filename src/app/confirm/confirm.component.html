@@ -1,0 +1,29 @@
+<button mat-icon-button class="close-button" [mat-dialog-close]>
+    <mat-icon>close</mat-icon>
+</button>
+<div mat-dialog-title>{{data.title}}</div>
+<mat-dialog-content>
+    <ng-container *ngIf="data.message">
+        <div class="text-secondary" [innerHTML]="data.message"></div>
+    </ng-container>
+</mat-dialog-content>
+<div mat-dialog-actions style="display: flex;justify-content: space-between;" *ngIf="data.actions?.confirm?.show || data.actions?.cancel?.show">
+        <!-- Cancel -->
+        <ng-container *ngIf="data.actions?.cancel?.show">
+            <button
+                mat-stroked-button
+                [matDialogClose]="'cancelled'">
+                {{data.actions?.cancel?.label}}
+            </button>
+        </ng-container>
+
+        <!-- Confirm -->
+        <ng-container>
+            <button
+                mat-flat-button
+                color="accent"
+                [matDialogClose]="'confirmed'">
+                {{data.actions?.confirm?.label}}
+            </button>
+        </ng-container>
+</div>
