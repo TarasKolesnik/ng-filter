@@ -168,13 +168,6 @@ export class FilterService
           { id: 4, name: 'Country 4' },
           { id: 5, name: 'Country 5' },
         ],
-        language: [
-          { id: 1, name: 'Language 1' },
-          { id: 2, name: 'Language 2' },
-          { id: 3, name: 'Language 3' },
-          { id: 4, name: 'Language 4' },
-          { id: 5, name: 'Language 5' },
-        ],
         status: [
           { id: 1, name: 'Status 1' },
           { id: 2, name: 'Status 2' },

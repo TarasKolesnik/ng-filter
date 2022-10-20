@@ -39,10 +39,8 @@ export class FilterComponent implements OnInit
 
   inputStatusSelect: BehaviorSubject<any> = new BehaviorSubject<any>({ name: 'status', list: [] });
   inputCountrySelect: BehaviorSubject<any> = new BehaviorSubject<any>({ name: 'country', list: [] });
-  inputLanguageSelect: BehaviorSubject<any> = new BehaviorSubject<any>({ name: 'language', list: [] });
 
   filteredCountries: ReplaySubject<any[]> = new ReplaySubject<any[]>(1);
-  filteredLanguages: ReplaySubject<any[]> = new ReplaySubject<any[]>(1);
   filteredStatuses: ReplaySubject<any[]> = new ReplaySubject<any[]>(1);
 
   filter: ReplaySubject<any> = new ReplaySubject<any>();
@@ -169,11 +167,9 @@ export class FilterComponent implements OnInit
     }, () => {
       this.filteredCountries.next([]);
       this.filteredStatuses.next([]);
-      this.filteredLanguages.next([]);
       
       this.inputStatusSelect.next({ name: 'status', list: [] });
       this.inputCountrySelect.next({ name: 'country', list: [] });
-      this.inputLanguageSelect.next({ name: 'language', list: [] });
       
     }).finally(() => 
     {

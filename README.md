@@ -1,15 +1,17 @@
 # ng-filter
 
-varsion: 1
+varsion: 0.2
 
-- add.component.ts
+Demo: https://youtu.be/rj7Ze5-N188
+
+- src/app/add.component.ts
     - ngOnInit()
     - filter()
     - engageFastFilter()
-    - clearFilter()
     - removeItemNewFilter()
+    - clearFilter()
 
-- filter.component.ts
+- src/app/filter/filter.component.ts
     - ngOnInit()
     - update()
     - checkCollectFilter()
@@ -22,7 +24,7 @@ varsion: 1
     - getFilterList()
     - getCurrentFilter()
 
-- date.component.ts
+- src/app/date/date.component.ts
     - ngOnInit()
     - onOpen()
     - today()
@@ -34,7 +36,7 @@ varsion: 1
     - endChange()
     - out()
 
-- select.component.ts:
+- src/app/select/select.component.ts:
     - ngOnChanges()
     - out()
     - selectList()
@@ -42,7 +44,7 @@ varsion: 1
     - select()
     - filterLists()
 
-- my-filter/index.components.ts
+- src/app/my-filter/index/index.components.ts
     - ngOnChanges()
     - createFilter()
     - saveFilter()
@@ -59,6 +61,7 @@ varsion: 1
     - updateDate()
     - collect()
     - getSavedFilters()
+    - getFilterList()
 
 - Use dependency: 
     - https://material.angular.io/

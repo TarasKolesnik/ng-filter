@@ -10,8 +10,6 @@ import { FilterService } from './_services/filter.service';
 })
 export class AppComponent implements OnInit
 {
-  title = 'AngularFilter';
-  show = false;
   savedFilters: any[] = [];
   currentFilter: any = [];
   nameSavedFilter: string = 'filter/products';
@@ -41,7 +39,7 @@ export class AppComponent implements OnInit
     {
       // send request to backend with get params (result)
       console.log(result)
-      
+
       this.savedFilters = this._filter.getSavedFilters(this.nameSavedFilter)
       this.currentFilter = this._filter.getCurrentFilter(this.nameCurrentFilter)
     });
