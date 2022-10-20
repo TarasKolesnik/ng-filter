@@ -2,7 +2,7 @@
 
 varsion: 1
 
-- leads.component.ts (index)
+- add.component.ts
     - ngOnInit()
     - filter()
     - engageFastFilter()
@@ -62,6 +62,4 @@ varsion: 1
 
 - Use dependency: 
     - https://material.angular.io/
-    - https://themeforest.net/item/fuse-angularjs-material-design-admin-template/12931855
     - https://www.npmjs.com/package/ngx-mat-select-search
-    - (Optional) https://tailwindcss.com/
